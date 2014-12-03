@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>robocup_model_resources</name>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
   <description>Model and world package for the Robocup 3D simulation league</description>
 
   <maintainer email="caguero@osrfoundation.org">Carlos Agüero</maintainer>
@@ -10,6 +10,7 @@
   <buildtool_depend>cmake</buildtool_depend>
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>gazebo</run_depend>
+  <run_depend>nao_meshes</run_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
