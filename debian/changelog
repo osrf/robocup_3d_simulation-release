@@ -1,0 +1,20 @@
+ros-indigo-robocup-utils (0.0.4-0trusty) trusty; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Tue, 02 Dec 2014 23:00:00 -0000
+
+ros-indigo-robocup-utils (0.0.3-0trusty) trusty; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 01 Dec 2014 23:00:00 -0000
+
+ros-indigo-robocup-utils (0.0.2-0trusty) trusty; urgency=high
+
+  * Initial version
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Sun, 30 Nov 2014 23:00:00 -0000
+
+
