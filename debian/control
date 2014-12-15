@@ -1,0 +1,12 @@
+Source: ros-indigo-robocup-model-resources
+Section: misc
+Priority: extra
+Maintainer: Carlos Agüero <caguero@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), cmake, ros-indigo-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-robocup-model-resources
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gazebo2, ros-indigo-nao-meshes
+Description: Model and world package for the Robocup 3D simulation league
