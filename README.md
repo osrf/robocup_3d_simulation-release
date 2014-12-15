@@ -8,87 +8,155 @@ A repository for Gazebo and ROS based robocup_3d_simulation.
 Prerequisites
 =============
 
-1. Compile Gazebo from source. Follow instructions [here](http://gazebosim.org/tutorials?tut=install&cat=get_started).
+We require Ubuntu Precise or Ubuntu Trusty.
 
-2. Install ROS (Hydro or Indigo):
-
-**Note: Replace `indigo` with `hydro` if you prefer to install ROS Hydro.**
-
-    sudo apt-get install ros-indigo-desktop
-
-3. Install Gazebo
-
-
-Robocup 3DS plugin installation
+One-line installation (recommended)
 ============
 
-1. Clone the repository:
+1. Execute the following line:
 
-    cd $HOME
+```
+wget -O /tmp/robocup3d_install.sh http://osrf-distributions.s3.amazonaws.com/gazebo/robocup3d_install.sh; sudo sh /tmp/robocup3d_install.sh
+```
+Installation from sources
+=========================
 
-    git clone https://github.com/osrf/robocup_3d_simulation.git
+1. Install ROS. Follow instructions
+ [here](http://wiki.ros.org/indigo/Installation/Ubuntu) and install the package
+ `ros-indigo-desktop` (Ubuntu Trusty) or `ros-hydro-desktop` (Ubuntu Precise).
 
-2. Create a catkin workspace.
+1. Install Gazebo4. Follow instructions
+ [here](http://gazebosim.org/tutorials?tut=install_from_source&cat=install) and
+ install the branch `gazebo_4.1` or above. From now on we are going to assume
+ that the installation is ROS indigo. If you are using hydro, just replace
+ `indigo` with `hydro` in the following commands.
 
-    . /opt/ros/indigo/setup.bash
+1. Install the Nao meshes:
 
-    mkdir -p ~/robocup_ws/src && cd ~/robocup_ws/src
+  ~~~
+  sudo apt-get install ros-indigo-nao-meshes
+  ~~~
 
-    ln -s ../../robocup_3d_simulation
+1. Clone the Robocup 3D simulation repository:
 
-    cd ..
+  ~~~
+  cd $HOME
+  git clone https://github.com/osrf/robocup_3d_simulation.git
+  ~~~
 
-    catkin_make
+1. Create a catkin workspace:
+
+  ~~~
+  . /opt/ros/indigo/setup.bash
+  mkdir -p ~/robocup_ws/src && cd ~/robocup_ws/src
+  ln -s ~/robocup_3d_simulation
+  cd ..
+  catkin_make install
+  ~~~
+
+1. Prepare the environment:
+
+  ~~~
+  . install/setup.bash
+  ~~~
 
 Running
 =======
 
-1. Start roscore in a new terminal.
+1. Start `roscore` in a new terminal:
 
-    . /opt/ros/indigo/setup.bash
+  ~~~
+  . /opt/ros/indigo/setup.bash
+  roscore
+  ~~~
 
-    roscore
+1. Start Gazebo with the 3d simulation soccer field in a new terminal:
 
-2. Start gazebo in a new terminal:
+  ~~~
+  . /opt/ros/indigo/setup.bash
+  gazebo robocup3d.world
+  ~~~
 
-    . /opt/ros/indigo/setup.bash
+1. Spawn a team of agents:
 
-    . ~/robocup_ws/devel/setup.bash
+  ~~~
+  . /opt/ros/indigo/setup.bash
+  spawnTeams
+  ~~~
 
-    . ~/robocup_3d_simulation/models/nao_meshes/setup.sh (make sure that the
-    paths match your directories, username, etc.).
+1. Run your own agent.:
 
-    gazebo ~/robocup_3d_simulation/worlds/robocup_3Dsim.world
+    1. Run the s-expression interface program to be able to convert between ROS
+    messages and s-expression. Open a new terminal and execute:
 
-3. Manually spawn a team of agents:
+      ~~~
+      . /opt/ros/indigo/setup.bash
+      sExprInterface.py localhost 33001
+      ~~~
 
-    . /opt/ros/indigo/setup.bash
+    1. You can select your favorite port. Start and connect a real agent with the
+    s-expression interface program in the port you entered in the previous step.
+    For example:
 
-    . ~/robocup_ws/devel/setup.bash
+      ~~~
+      ./start.sh localhost -p 33001
+      ~~~
 
-    sh ~/robocup_3d_simulation/bin/spawnTeams.sh
+1. [Optional] Additional agents can be inserted by typing the following command,
+  where the last two parameters are the team name and uniform number
+  respectively:
 
-[Optional] Additional agents can be inserted by typing:
+  ~~~
+  createAgent $ROS_ROOT/../robocup_model_resources/nao_models/nao_soccer.sdf teamA 3
+  ~~~
 
-    ~/robocup_ws/devel/lib/robocup_clients/createAgent ~/robocup_3d_simulation/models/agent.sdf <team_name> <uniform_number>
+1. [Optional] Run rcssserver3d just to draw the field in the roboviz:
 
-4. [Optional] Run rcssserver3d just to draw the field in the roboviz:
+  ~~~
+  rcssserver3d
+  ~~~
 
-    rcssserver3d
+1. [Optional] Run roboviz to be able to debug the agents:
 
-5. [Optional] Run roboviz to be able to debug the agents:
+  ~~~
+  roboviz.sh
+  ~~~
 
-    roboviz.sh
 
-6. Run the s-expression interface program to be able to convert between ros
-messages and s-expression.
+Interacting with the simulation
+===============================
 
-    cd ~/robocup_3d_simulation/sExprInterface
+We use ROS for interact with the simulation and modify the state of the game.
+Spawn a team of agents following the instructions previously detailed.
 
-    ./sExprInterface.py localhost 33001 (you can select your favourite port).
+1. Modify the state of the game. Open a new terminal and run:
 
-7. Start and connect a real agent with the s-expression interface program in
-the port you entered in the previous step. For example:
+  ~~~
+  . /opt/ros/indigo/setup.bash
+  rosservice call /gameController/set_game_state KickOff_Left
+  ~~~
 
-    cd <directory_where_your_agent_is>
-    ./start.sh -p 33001
+  After a few seconds the game will switch to `PlayOn.
+
+  The list of available game states is: `BeforeKickOff`, `KickOff_Left`,
+  `KickOff_Right`, `PlayOn`, `KickIn_Left`, `KickIn_Right`, `corner_kick_left`,
+  `corner_kick_right`, `goal_kick_left`, `goal_kick_right`, `GameOver`,
+  `Goal_Left`, `Goal_Right`, `free_kick_left`, `kick_kick_right`.
+
+1. Show the state of the game. Type in the previously open terminal:
+
+  ~~~
+  rostopic echo /gameController/game_state
+  ~~~
+
+1. Move the ball specifying [`<X>`, `<Y>`, `<Z>`, `<VX>`, `<VY>`, `<VZ>`]:
+
+  ~~~
+  rosservice call /gameController/move_ball 2 1 0 0 0
+  ~~~
+
+1. Move a player specifying [`<Team name>` `<uniform number>` [`<X>`, `<Y>`, `<THETA>`]:
+
+  ~~~
+  rosservice call /gameController/move_agent teamA 1 [3, 2, 0]
+  ~~~
