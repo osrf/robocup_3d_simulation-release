@@ -83,9 +83,9 @@ add_executable(teleoperator src/teleoperator.cc)
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(
+  robocup_msgs_generate_messages_cpp
   createAgent
   teleoperator
-  robocup_msgs_generate_messages_cpp
 )
 
 ## Specify libraries to link a library or executable target against
@@ -131,6 +131,9 @@ install(TARGETS teleoperator
 
 # Install the script for spawning the teams.
 install(PROGRAMS ${PROJECT_BINARY_DIR}/spawnTeams DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+# Install the script for ROS <-> sExpression bridge.
+install(PROGRAMS ${PROJECT_SOURCE_DIR}/src/sExprInterface.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 # Environment hooks for robocup_utils.
 catkin_add_env_hooks(10.robocup_utils SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
