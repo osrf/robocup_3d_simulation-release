@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>robocup_utils</name>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <description>The robocup utils package</description>
 
   <maintainer email="caguero@osrfoundation.org">Carlos Agüero</maintainer>
@@ -12,7 +12,6 @@
   <build_depend>robocup_msgs</build_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>robocup_msgs</run_depend>
-
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
