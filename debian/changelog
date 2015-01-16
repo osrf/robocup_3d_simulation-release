@@ -1,0 +1,44 @@
+ros-indigo-robocup-model-resources (0.0.7-0trusty) trusty; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Fri, 16 Jan 2015 08:00:00 -0000
+
+ros-indigo-robocup-model-resources (0.0.6-0trusty) trusty; urgency=high
+
+  * Update the soccer_nao.urdf to use the new Nao meshes path.
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 15 Dec 2014 08:00:00 -0000
+
+ros-indigo-robocup-model-resources (0.0.5-0trusty) trusty; urgency=high
+
+  * Adding ROS_PACKAGE_PATH to the GAZEBO_MODEL_PATH.
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Thu, 04 Dec 2014 08:00:00 -0000
+
+ros-indigo-robocup-model-resources (0.0.4-0trusty) trusty; urgency=high
+
+  * Include nao_meshes as a runtime dependency
+  * Contributors: Jose Luis Rivero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Wed, 03 Dec 2014 08:00:00 -0000
+
+ros-indigo-robocup-model-resources (0.0.3-0trusty) trusty; urgency=high
+
+  * Export ROS_PACKAGE_PATH in gazebo environment hook
+    This will allow the robocup package to use the meshes directly from
+    the nao_meshes package.
+  * Contributors: Jose Luis Rivero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Tue, 02 Dec 2014 08:00:00 -0000
+
+ros-indigo-robocup-model-resources (0.0.2-0trusty) trusty; urgency=high
+
+  * Initial version
+  * Contributors: Carlos Agüero, Nate Koenig
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 01 Dec 2014 08:00:00 -0000
+
+
