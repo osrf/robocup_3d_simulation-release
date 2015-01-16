@@ -1,1 +1,0 @@
-string team_name
