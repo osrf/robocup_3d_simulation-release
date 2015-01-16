@@ -13,23 +13,77 @@ We require Ubuntu Precise or Ubuntu Trusty.
 One-line installation (recommended)
 ============
 
-1. Execute the following line:
+1. The following line will download a script that will install a package named
+ros-{$DISTRO}-robocup3d in your machine. It will also install the required
+dependencies, including the package containing the Nao meshes.
 
-```
-wget -O /tmp/robocup3d_install.sh http://osrf-distributions.s3.amazonaws.com/gazebo/robocup3d_install.sh; sudo sh /tmp/robocup3d_install.sh
-```
+   ```
+   wget -O /tmp/robocup3d_install.sh http://osrf-distributions.s3.amazonaws.com/gazebo/robocup3d_install.sh; sudo sh /tmp/robocup3d_install.sh
+   ```
+
+1. It is convenient if the environment variables are automatically added to your
+bash session every time a new shell is launched.
+
+  For ROS Hydro:
+
+  ~~~
+  echo -e "\n# Gazebo" >> ~/.bashrc
+  echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
+  echo "# ROS" >> ~/.bashrc
+  echo "source /opt/ros/hydro/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+  ~~~
+
+  For ROS Indigo:
+
+  ~~~
+  echo -e "\n# Gazebo" >> ~/.bashrc
+  echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
+  echo "# ROS" >> ~/.bashrc
+  echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+  ~~~
+
 Installation from sources
 =========================
 
+**You should skip this section if you installed the software using the one-line
+instalation script.**
+
 1. Install ROS. Follow instructions
  [here](http://wiki.ros.org/indigo/Installation/Ubuntu) and install the package
- `ros-indigo-desktop` (Ubuntu Trusty) or `ros-hydro-desktop` (Ubuntu Precise).
+ `ros-indigo-desktop` (Ubuntu Trusty). If you are in Ubuntu Precise you should
+ follow [this instructions](http://wiki.ros.org/hydro/Installation/Ubuntu) and
+ install the package `ros-hydro-desktop`.
 
 1. Install Gazebo4. Follow instructions
  [here](http://gazebosim.org/tutorials?tut=install_from_source&cat=install) and
  install the branch `gazebo_4.1` or above. From now on we are going to assume
  that the installation is ROS indigo. If you are using hydro, just replace
  `indigo` with `hydro` in the following commands.
+
+1. It is convenient if the environment variables are automatically added to your
+bash session every time a new shell is launched.
+
+  For ROS Hydro:
+
+  ~~~
+  echo -e "\n# Gazebo" >> ~/.bashrc
+  echo "source <REPLACE_BY_YOUR_GAZEBO_INSTALLATION_DIRECTORY>/gazebo/setup.sh" >> ~/.bashrc
+  echo "# ROS" >> ~/.bashrc
+  echo "source /opt/ros/hydro/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+  ~~~
+
+  For ROS Indigo:
+
+  ~~~
+  echo -e "\n# Gazebo" >> ~/.bashrc
+  echo "source <REPLACE_BY_YOUR_GAZEBO_INSTALLATION_DIRECTORY>/gazebo/setup.sh" >> ~/.bashrc
+  echo "# ROS" >> ~/.bashrc
+  echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
+  source ~/.bashrc
+  ~~~
 
 1. Install the Nao meshes:
 
@@ -47,7 +101,6 @@ Installation from sources
 1. Create a catkin workspace:
 
   ~~~
-  . /opt/ros/indigo/setup.bash
   mkdir -p ~/robocup_ws/src && cd ~/robocup_ws/src
   ln -s ~/robocup_3d_simulation
   cd ..
@@ -66,21 +119,18 @@ Running
 1. Start `roscore` in a new terminal:
 
   ~~~
-  . /opt/ros/indigo/setup.bash
   roscore
   ~~~
 
 1. Start Gazebo with the 3d simulation soccer field in a new terminal:
 
   ~~~
-  . /opt/ros/indigo/setup.bash
   gazebo robocup3d.world
   ~~~
 
 1. Spawn a team of agents:
 
   ~~~
-  . /opt/ros/indigo/setup.bash
   spawnTeams
   ~~~
 
@@ -90,7 +140,6 @@ Running
     messages and s-expression. Open a new terminal and execute:
 
       ~~~
-      . /opt/ros/indigo/setup.bash
       sExprInterface.py localhost 33001
       ~~~
 
@@ -132,7 +181,6 @@ Spawn a team of agents following the instructions previously detailed.
 1. Modify the state of the game. Open a new terminal and run:
 
   ~~~
-  . /opt/ros/indigo/setup.bash
   rosservice call /gameController/set_game_state KickOff_Left
   ~~~
 
@@ -152,11 +200,11 @@ Spawn a team of agents following the instructions previously detailed.
 1. Move the ball specifying [`<X>`, `<Y>`, `<Z>`, `<VX>`, `<VY>`, `<VZ>`]:
 
   ~~~
-  rosservice call /gameController/move_ball 2 1 0 0 0
+  rosservice call /gameController/move_ball 2 1 0 0 0 0
   ~~~
 
 1. Move a player specifying [`<Team name>` `<uniform number>` [`<X>`, `<Y>`, `<THETA>`]:
 
   ~~~
-  rosservice call /gameController/move_agent teamA 1 [3, 2, 0]
+  rosservice call /gameController/move_agent teamA 1 [3,2,0]
   ~~~
