@@ -1,0 +1,12 @@
+Source: ros-indigo-robocup-gamecontroller-plugin
+Section: misc
+Priority: extra
+Maintainer: Carlos Agüero <caguero@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), gazebo2, ros-indigo-catkin, ros-indigo-robocup-msgs, ros-indigo-roscpp
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-robocup-gamecontroller-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, gazebo2, ros-indigo-robocup-msgs, ros-indigo-roscpp
+Description: The robocup_gamecontroller_plugin package
