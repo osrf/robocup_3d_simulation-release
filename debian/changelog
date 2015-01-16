@@ -1,0 +1,38 @@
+ros-hydro-robocup-gamecontroller-plugin (0.0.7-1quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Fri, 16 Jan 2015 08:00:00 -0000
+
+ros-hydro-robocup-gamecontroller-plugin (0.0.6-1quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 15 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-gamecontroller-plugin (0.0.5-1quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Thu, 04 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-gamecontroller-plugin (0.0.4-1quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Wed, 03 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-gamecontroller-plugin (0.0.3-1quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Tue, 02 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-gamecontroller-plugin (0.0.2-1quantal) quantal; urgency=high
+
+  * Initial version
+  * Contributors: Carlos Agüero, Nate Koenig
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 01 Dec 2014 08:00:00 -0000
+
+
