@@ -1,0 +1,38 @@
+ros-hydro-robocup-msgs (0.0.7-1precise) precise; urgency=high
+
+
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Fri, 16 Jan 2015 08:00:00 -0000
+
+ros-hydro-robocup-msgs (0.0.6-1precise) precise; urgency=high
+
+
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Mon, 15 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-msgs (0.0.5-1precise) precise; urgency=high
+
+
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Thu, 04 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-msgs (0.0.4-1precise) precise; urgency=high
+
+
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Wed, 03 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-msgs (0.0.3-1precise) precise; urgency=high
+
+
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Tue, 02 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-msgs (0.0.2-1precise) precise; urgency=high
+
+  * Initial version
+  * Contributors: Carlos Agüero, Nate Koenig
+
+ -- Tully Foote <tfoote@osrfoundation.org>  Mon, 01 Dec 2014 08:00:00 -0000
+
+
