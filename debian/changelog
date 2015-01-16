@@ -1,0 +1,44 @@
+ros-hydro-robocup-utils (0.0.7-0quantal) quantal; urgency=high
+
+  * Generating config.py in the PROJECT_BINARY_DIR.
+  * Fix typo in the robocup_utils cmakelist
+  * Adding config.py.in and tweaking Readme file.
+  * Remove hardcoded path from sExpression.py
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Fri, 16 Jan 2015 08:00:00 -0000
+
+ros-hydro-robocup-utils (0.0.6-0quantal) quantal; urgency=high
+
+  * Moving sExprInterface.py to utils
+  * Update the soccer_nao.urdf to use the new Nao meshes path.
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 15 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-utils (0.0.5-0quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Thu, 04 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-utils (0.0.4-0quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Wed, 03 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-utils (0.0.3-0quantal) quantal; urgency=high
+
+
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Tue, 02 Dec 2014 08:00:00 -0000
+
+ros-hydro-robocup-utils (0.0.2-0quantal) quantal; urgency=high
+
+  * Initial version
+  * Contributors: Carlos Agüero
+
+ -- Carlos Agüero <caguero@osrfoundation.org>  Mon, 01 Dec 2014 08:00:00 -0000
+
+
